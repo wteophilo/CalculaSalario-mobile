@@ -4,5 +4,27 @@
     <string name="app_name">QtoRecebo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+     <string name="salarioBruto">Salário Bruto:</string>
+    <string name="transporte">Transporte</string>
+    <string name="calcularSalario">Calcular</string>
+    <string name="salarioLiquido">Salário Liquido:</string>
+    <string name="nDependentes">N° Dependentes:</string>
+    <string name="Descontos">Descontos:</string>
+    <string name="limpar">Limpar</string>
+    <string name = "porcentagemInss">Porcentagem Inss:</string>
+    <string name = "porcentagemIrrf">Porcentagem Irrf:</string>
+    <string name = "porcentagemTrans">Porcentagem Transporte:</string>
+    <string name = "descInss">Desconto Inss:</string>
+    <string name = "descIrrf">Desconto Irrf:</string>
+    <string name = "descTransporte">Desconto Transporte:</string>
+    <string name = "descSindicato">Desconto Sindicato:</string>
+    <string name = "menuResposta">Resultado</string>
+    <string name = "menuGrafico">Gráfico</string>
+    <string name = "calcHr">Hora Trabalho</string>
+    <string name = "outroDesconto">Outro Desconto:</string>
+    <string name ="seleciona">Selecione uma opção abaixo:</string>
+    <string name="exit">Sair</string>
+    <string name="altSalario">Alterar Salário</string>
+    <string name="altPorcentagem">Porcentagem:</string>
 
 </resources>

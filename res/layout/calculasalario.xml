@@ -1,7 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lblSalario"
+         android:labelFor="@+id/iSalarioBruto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+        android:text="@string/salarioBruto"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/iSalarioBruto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    	android:layout_below="@+id/lblSalario"
+        android:ems="20"
+        android:inputType="numberDecimal" />
+    
+    <TextView 
+        android:id = "@+id/lblDependente"
+        android:labelFor="@+id/iDependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/iSalarioBruto"
+		android:text="@string/nDependentes"
+		android:textAppearance="?android:attr/textAppearanceMedium"/>
+    
+     <EditText
+        android:id="@+id/iDependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblDependente"
+		android:ems="20"
+        android:inputType="numberDecimal" />
+     
+      <TextView 
+        android:id = "@+id/lblDesconto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/iDependente"
+		android:text="@string/Descontos"
+		android:layout_marginTop="25dp"
+		android:textAppearance="?android:attr/textAppearanceMedium"/>
+      
+      <!-- Linha -->
+      <View
+        android:id="@+id/line"
+    	android:layout_width="fill_parent"
+    	android:layout_height="1dp"
+    	android:background="@android:color/darker_gray"
+    	android:layout_below="@+id/lblDesconto" />
+
+    <CheckBox
+        android:id="@+id/chTransporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+		android:text="@string/transporte" 
+		android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id = "@+id/lblOutroDesconto"
+        android:labelFor="@+id/iOutroDesconto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/chTransporte"
+        android:text="@string/outroDesconto"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/iOutroDesconto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblOutroDesconto"
+        android:ems="20"
+        android:inputType="numberDecimal" />
 
 
-</LinearLayout>
+    <Button
+       android:id="@+id/bCalcular"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="30dp"
+
+       android:text="@string/calcularSalario"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_below="@+id/iOutroDesconto"
+       android:layout_centerHorizontal="true"
+
+      />
+
+	 <Button
+        android:id="@+id/bLimpar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/limpar"
+        android:layout_below="@+id/bCalcular"
+       />
+
+  </RelativeLayout>

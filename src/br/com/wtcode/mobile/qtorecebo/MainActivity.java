@@ -18,7 +18,7 @@ public class MainActivity extends Activity implements Runnable {
 
     @Override
     public void run() {
-        startActivity(new Intent(this, null));
+        startActivity(new Intent(this, CalculaActitvity.class));
         finish();
     }
 
