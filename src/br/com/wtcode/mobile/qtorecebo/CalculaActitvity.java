@@ -8,6 +8,7 @@ import java.util.Properties;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
@@ -99,6 +100,14 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 		if (v.getId() == R.id.bCalcular) {
 			if (validateFields()) {
 			   calculaSalario(); 
+			   Intent intent = new Intent(getApplicationContext(), RespostaActivity.class);
+			   intent.putExtra("salario", salario);
+               intent.putExtra("inss", inss);
+               intent.putExtra("irrf", irrf);
+               intent.putExtra("dependente", dependente);
+               intent.putExtra("transporte", transporte);
+               startActivity(intent);
+               Log.i(TAG, "Chamando a segunda tela e passando a classe salario");
 			}else{
 				Toast.makeText(this, resources.getString(R.string.campos_vazios),Toast.LENGTH_LONG).show();
 			}             
@@ -114,8 +123,8 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 	   salario = new Salario();
 	   salario.setBruto(new BigDecimal(editSalarioBruto.getText().toString()));
 	   salario.setNumeroDeDependentes(new Integer(Integer.parseInt(editNumDependente.getText().toString())));
-	   inss = calculaDesconto(salario, new Inss(salario,arquivo));
 	   dependente = calculaDesconto(salario, new DescontoDependente(salario, arquivo));
+	   inss = calculaDesconto(salario, new Inss(salario,arquivo));
 	   irrf = calculaDesconto(salario, new Irrf(salario,arquivo));
 	   if (chTransporte.isChecked()){
 			this.transporte = calculaDesconto(salario, new Transporte(salario,arquivo));

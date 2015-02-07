@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1,2">
+
+        <TextView
+               android:id="@+id/lblPorcetagem"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/altPorcentagem"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textStyle="bold|italic"/>
+
+           <View
+               android:id="@+id/line1"
+               android:layout_width="fill_parent"
+               android:layout_height="1dp"
+               android:background="@android:color/black"/>
+
+           <TextView
+               android:id="@+id/lblPInss"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/porcentagemInss"
+               android:textAppearance="?android:attr/textAppearanceMedium" />
+
+           <TextView
+               android:id="@+id/resPInss"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+           
+
+           <TextView
+               android:id="@+id/lblPIrrf"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/porcentagemIrrf"
+               android:textAppearance="?android:attr/textAppearanceMedium" />
+
+           <TextView
+               android:id="@+id/respPIrrf"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"
+           />
+
+           <TextView
+               android:id="@+id/lblPTransporte"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/porcentagemTrans"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/resPTransporte"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/lblDesconto2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/Descontos"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textStyle="bold|italic"/>
+
+           <View
+               android:id="@+id/line2"
+               android:layout_width="fill_parent"
+               android:layout_height="1dp"
+               android:background="@android:color/black"/>
+
+
+
+           <TextView
+               android:id="@+id/lblDescInss"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/descInss"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/respDescInss"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+           <TextView
+               android:id="@+id/lblDescIrrf"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/descIrrf"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/respDescIrrf"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/lblDescTrans"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/descTransporte"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/respDescTrans"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+           <TextView
+               android:id="@+id/lblOutroDesconto"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/outroDesconto"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+           <TextView
+               android:id="@+id/respOutroDesconto"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+           <View
+               android:id="@+id/line3"
+               android:layout_width="fill_parent"
+               android:layout_height="1dp"
+               android:background="@android:color/black"/>
+
+           <TextView
+               android:id="@+id/lblSalarioLiquido"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/salarioLiquido"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textStyle="bold|italic"/>
+
+           <TextView
+               android:id="@+id/respSalario"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textStyle="bold|italic"/>
+
+    </TableLayout>
+</ScrollView>

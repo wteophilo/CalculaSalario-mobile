@@ -1,8 +1,10 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Salario {
+public class Salario implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private BigDecimal bruto;
 	private Integer numeroDeDependentes;
 	private BigDecimal liquido;

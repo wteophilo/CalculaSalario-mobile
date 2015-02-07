@@ -4,10 +4,9 @@ import java.math.BigDecimal;
 import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.Calculadora;
-import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
 
-public class Transporte extends Desconto {
-	private ManipulaProperties manipulaProperties;
+public class Transporte extends Desconto{
+	private static final long serialVersionUID = 1L;
 	
 	public Transporte(Salario salario, Properties aliquotas) {
 		super(salario,aliquotas);

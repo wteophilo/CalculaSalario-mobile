@@ -1,11 +1,13 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
 
-public class TabelaDescontoIrrf {
+public class TabelaDescontoIrrf implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private ManipulaProperties manipulaProperties;
 	
 	public TabelaDescontoIrrf(Properties aliquotas) {

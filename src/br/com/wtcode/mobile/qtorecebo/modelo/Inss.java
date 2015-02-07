@@ -1,13 +1,13 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Properties;
 
-import android.content.Context;
 import br.com.wtcode.mobile.qtorecebo.util.Calculadora;
 
-public class Inss extends Desconto {
-
+public class Inss extends Desconto implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public final static BigDecimal LIMITE = new BigDecimal("482.93");
 	
 	public Inss(Salario salario,Properties aliquotas) {

@@ -1,11 +1,13 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
 
-public abstract  class Desconto {
+public abstract class Desconto implements Serializable {
+	private static final long serialVersionUID = 1L;
 	protected  BigDecimal desconto;
 	private  BigDecimal porcentagem;
 	protected Salario salario;

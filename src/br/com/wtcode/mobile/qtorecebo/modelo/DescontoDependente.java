@@ -1,10 +1,12 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Properties;
 
-public class DescontoDependente extends Desconto{
-	
+public class DescontoDependente extends Desconto implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	public DescontoDependente(Salario salario,Properties aliquotas) {
 		super(salario,aliquotas);
 	}
@@ -21,10 +23,10 @@ public class DescontoDependente extends Desconto{
 	@Override
 	public BigDecimal calculaValorDesconto() {
 		setPorcentagem(calculaPorcentagem());
-		if(salario.getNumeroDeDependentes() >0 && salario.getLiquido().compareTo(new BigDecimal("2000.00"))>=0  ){
-			salario.setLiquido(salario.getLiquido().subtract(getValorDesconto()));
+		if(salario.getNumeroDeDependentes() >0 && salario.getBruto().compareTo(new BigDecimal("2000.00"))>=0  ){
+			salario.setLiquido(salario.getBruto().subtract(getValorDesconto()));
 		}
-		return salario.getLiquido();
+		return salario.getBruto();
 	}
 
 }

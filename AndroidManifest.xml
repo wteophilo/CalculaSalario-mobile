@@ -28,6 +28,12 @@
             android:name="br.com.wtcode.mobile.qtorecebo.CalculaActitvity">
         </activity>
         
+        <activity
+            android:screenOrientation = "portrait"
+            android:name="br.com.wtcode.mobile.qtorecebo.RespostaActivity">
+        </activity>
+        
+        
     </application>
 
 </manifest>
