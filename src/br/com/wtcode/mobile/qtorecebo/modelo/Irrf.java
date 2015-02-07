@@ -1,14 +1,16 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
 import java.math.BigDecimal;
+import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.Calculadora;
 
 public class Irrf  extends Desconto{
-	private TabelaDescontoIrrf tabelaDescontoIrrf = new TabelaDescontoIrrf();
+	private TabelaDescontoIrrf tabelaDescontoIrrf;
 	
-	public Irrf(Salario salario) {
-		super(salario);
+	public Irrf(Salario salario,Properties aliquotas) {
+		super(salario,aliquotas);
+		tabelaDescontoIrrf = new TabelaDescontoIrrf(aliquotas);
 	}	
 	
 	@Override

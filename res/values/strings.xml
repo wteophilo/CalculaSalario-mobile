@@ -27,7 +27,11 @@
     <string name="altSalario">Alterar Salário</string>
     <string name="altPorcentagem">Porcentagem:</string>
     
-    <string name="salario_bruto_required">Salário Bruto não pode ser vázio</string>
+    <string name="salario_bruto_required">Salário bruto não pode ser vázio</string>
+    <string name="numero_dependente_required">Dependente não pode ser vázio</string>
+    <string name="campos_vazios">Existem campos vázios, por favor preencha-os</string>
+    
+    
     
 
 </resources>

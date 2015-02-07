@@ -1,15 +1,17 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
 import java.math.BigDecimal;
+import java.util.Properties;
 
+import android.content.Context;
 import br.com.wtcode.mobile.qtorecebo.util.Calculadora;
 
 public class Inss extends Desconto {
 
 	public final static BigDecimal LIMITE = new BigDecimal("482.93");
 	
-	public Inss(Salario salario) {
-		super(salario);
+	public Inss(Salario salario,Properties aliquotas) {
+		super(salario,aliquotas);
 	}
 
 	@Override

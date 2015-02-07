@@ -1,16 +1,17 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
 import java.math.BigDecimal;
+import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
 
 public class TabelaDescontoIrrf {
 	private ManipulaProperties manipulaProperties;
 	
-	public TabelaDescontoIrrf() {
-		this.manipulaProperties = new ManipulaProperties();
+	public TabelaDescontoIrrf(Properties aliquotas) {
+		this.manipulaProperties = new ManipulaProperties(aliquotas);
 	}
-	
+
 	public BigDecimal buscaParcelaDeducaoDoImposto(BigDecimal aliquota){
 		if (aliquota.compareTo((new BigDecimal("0.075"))) <= 0) {
 			return manipulaProperties.buscaAliquota("irrf.desconto.minimo");

@@ -1,22 +1,30 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
 import java.math.BigDecimal;
+import java.util.Properties;
 
-import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
+public class DescontoDependente extends Desconto{
+	
+	public DescontoDependente(Salario salario,Properties aliquotas) {
+		super(salario,aliquotas);
+	}
+	
+	private BigDecimal getValorDesconto() {
+		return manipulaProperties.buscaAliquota("dependente.desconto");
+	}
 
-public class DescontoDependente{
-	
-	private ManipulaProperties manipulaProperties = new ManipulaProperties();
-	
-	public Salario calculaDesconto(Salario salario){
+	@Override
+	public BigDecimal calculaPorcentagem() {
+		return new BigDecimal(0.0);
+	}
+
+	@Override
+	public BigDecimal calculaValorDesconto() {
+		setPorcentagem(calculaPorcentagem());
 		if(salario.getNumeroDeDependentes() >0 && salario.getLiquido().compareTo(new BigDecimal("2000.00"))>=0  ){
 			salario.setLiquido(salario.getLiquido().subtract(getValorDesconto()));
 		}
-		return salario;
-	}
-
-	private BigDecimal getValorDesconto() {
-		return manipulaProperties.buscaAliquota("dependente.desconto");
+		return salario.getLiquido();
 	}
 
 }

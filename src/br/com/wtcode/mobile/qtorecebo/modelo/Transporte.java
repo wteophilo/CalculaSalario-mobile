@@ -1,17 +1,17 @@
 package br.com.wtcode.mobile.qtorecebo.modelo;
 
 import java.math.BigDecimal;
+import java.util.Properties;
 
 import br.com.wtcode.mobile.qtorecebo.util.Calculadora;
 import br.com.wtcode.mobile.qtorecebo.util.ManipulaProperties;
 
 public class Transporte extends Desconto {
+	private ManipulaProperties manipulaProperties;
 	
-	public Transporte(Salario salario) {
-		super(salario);
+	public Transporte(Salario salario, Properties aliquotas) {
+		super(salario,aliquotas);
 	}
-
-	private ManipulaProperties manipulaProperties = new ManipulaProperties();  
 
 	@Override
 	public BigDecimal calculaPorcentagem() {
