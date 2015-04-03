@@ -1,7 +1,6 @@
 package br.com.wtcode.mobile.qtorecebo;
 
 import br.com.wtcode.mobile.qtorecebo.modelo.Desconto;
-import br.com.wtcode.mobile.qtorecebo.modelo.DescontoDependente;
 import br.com.wtcode.mobile.qtorecebo.modelo.Inss;
 import br.com.wtcode.mobile.qtorecebo.modelo.Irrf;
 import br.com.wtcode.mobile.qtorecebo.modelo.Salario;
@@ -21,11 +20,12 @@ public class RespostaActivity extends Activity {
 	private TextView respDescIrrf;
 	private TextView respDescTrans;
 	private TextView respSalario;
+	private TextView respOutroDesconto;
 	private Salario salario;
 	private Desconto inss;
 	private Desconto irrf;
-	private Desconto dependente;
 	private Transporte transporte;
+	private String outroDesconto;
 
 
     @Override
@@ -47,9 +47,9 @@ public class RespostaActivity extends Activity {
         salario = (Salario) intent.getSerializableExtra("salario");
         inss = (Inss) intent.getSerializableExtra("inss");
         irrf = (Irrf) intent.getSerializableExtra("irrf");
-        dependente = (DescontoDependente) intent.getSerializableExtra("dependente");
         transporte = (Transporte) intent.getSerializableExtra("transporte");
-	}
+        outroDesconto = (String)intent.getSerializableExtra("outroDesconto");
+   }
 
 	private void iniciaComponentes() {
 		this.respPInss = (TextView) findViewById(R.id.resPInss);
@@ -59,6 +59,7 @@ public class RespostaActivity extends Activity {
         this.respDescIrrf = (TextView) findViewById(R.id.respDescIrrf);
         this.respDescTrans = (TextView) findViewById(R.id.respDescTrans);
         this.respSalario = (TextView) findViewById(R.id.respSalario);
+        this.respOutroDesconto = (TextView) findViewById(R.id.respOutroDesconto);
 	}
 
 	private void showConsulta() {
@@ -75,6 +76,7 @@ public class RespostaActivity extends Activity {
 		this.respDescInss.setText(inss.getDesconto().toString());
 		this.respDescIrrf.setText(irrf.getDesconto().toString());
 		this.respSalario.setText(salario.getLiquido().toString());
+		this.respOutroDesconto.setText(outroDesconto);
     }
 
 	public String getTAG() {
@@ -107,8 +109,5 @@ public class RespostaActivity extends Activity {
 
 	public TextView getRespSalario() {
 		return respSalario;
-	}
-	public Desconto getDependente() {
-		return dependente;
 	}
 }

@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 public class Salario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private BigDecimal bruto;
-	private Integer numeroDeDependentes;
 	private BigDecimal liquido;
 
 	public Salario() {}
@@ -24,14 +23,6 @@ public class Salario implements Serializable {
 		this.bruto = bruto;
 	}
 
-	public Integer getNumeroDeDependentes() {
-		return numeroDeDependentes;
-	}
-
-	public void setNumeroDeDependentes(Integer numeroDeDependentes) {
-		this.numeroDeDependentes = numeroDeDependentes;
-	}
-
 	public BigDecimal getLiquido() {
 		return liquido;
 	}
@@ -42,8 +33,7 @@ public class Salario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Salario [bruto=" + bruto + ", numeroDeDependentes="
-				+ numeroDeDependentes + ", liquido=" + liquido + "]";
+		return "Salario [bruto=" + bruto +", liquido=" + liquido + "]";
 	}
 
 }

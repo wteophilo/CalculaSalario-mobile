@@ -21,7 +21,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.com.wtcode.mobile.qtorecebo.modelo.Desconto;
-import br.com.wtcode.mobile.qtorecebo.modelo.DescontoDependente;
 import br.com.wtcode.mobile.qtorecebo.modelo.Inss;
 import br.com.wtcode.mobile.qtorecebo.modelo.Irrf;
 import br.com.wtcode.mobile.qtorecebo.modelo.Salario;
@@ -33,7 +32,6 @@ import br.com.wtcode.mobile.qtorecebo.modelo.Transporte;
 @SuppressLint("UseValueOf")
 public class CalculaActitvity extends Activity implements View.OnClickListener {
 	private EditText editSalarioBruto;
-	private EditText editNumDependente;
 	private CheckBox chTransporte;
 	private EditText editOutroDesconto;
 	private Button btCalcular;
@@ -45,7 +43,6 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 	private Desconto inss;
 	private Desconto irrf;
 	private Desconto transporte;
-	private Desconto dependente;
 	private Properties arquivo;
 	
 
@@ -86,7 +83,6 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
         };
 		
 		editSalarioBruto = (EditText) findViewById(R.id.iSalarioBruto);
-		editNumDependente = (EditText) findViewById(R.id.iDependente);
 		chTransporte = (CheckBox) findViewById(R.id.chTransporte);
 		editOutroDesconto = (EditText) findViewById(R.id.iOutroDesconto);
 		btCalcular = (Button) findViewById(R.id.bCalcular);
@@ -104,8 +100,8 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 			   intent.putExtra("salario", salario);
                intent.putExtra("inss", inss);
                intent.putExtra("irrf", irrf);
-               intent.putExtra("dependente", dependente);
                intent.putExtra("transporte", transporte);
+               intent.putExtra("outroDesconto", editOutroDesconto.getText().toString());
                startActivity(intent);
                Log.i(TAG, "Chamando a segunda tela e passando a classe salario");
 			}else{
@@ -122,12 +118,13 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 	private void calculaSalario() {
 	   salario = new Salario();
 	   salario.setBruto(new BigDecimal(editSalarioBruto.getText().toString()));
-	   salario.setNumeroDeDependentes(new Integer(Integer.parseInt(editNumDependente.getText().toString())));
-	   dependente = calculaDesconto(salario, new DescontoDependente(salario, arquivo));
 	   inss = calculaDesconto(salario, new Inss(salario,arquivo));
 	   irrf = calculaDesconto(salario, new Irrf(salario,arquivo));
 	   if (chTransporte.isChecked()){
 			this.transporte = calculaDesconto(salario, new Transporte(salario,arquivo));
+	   }
+	   if(!TextUtils.isEmpty(editOutroDesconto.getText().toString())){
+		   salario.setLiquido(salario.getLiquido().subtract(new BigDecimal(editOutroDesconto.getText().toString())));
 	   }
 	}
 
@@ -135,7 +132,6 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 	private void limpaCampos() {
 		Log.i(TAG," Limpando os campos");
 		editSalarioBruto.setText("");
-		editNumDependente.setText("0");
 		chTransporte.setChecked(false);
 		editOutroDesconto.setText("0");
 	}
@@ -165,35 +161,22 @@ public class CalculaActitvity extends Activity implements View.OnClickListener {
 	 */
 	private boolean validateFields() {
 		String salarioBruto = editSalarioBruto.getText().toString().trim();
-		String numDependente = editNumDependente.getText().toString().trim();
-		
-		return (!isEmptyFields(salarioBruto,numDependente) && hasSizeValid(salarioBruto,numDependente));
+		return (!isEmptyFields(salarioBruto) && hasSizeValid(salarioBruto));
 	}
 
-	private boolean hasSizeValid(String salarioBruto,String numDependente) {
+	private boolean hasSizeValid(String salarioBruto) {
 		if (!(salarioBruto.length() > 0)) {
 			editSalarioBruto.requestFocus();
 			editSalarioBruto.setError(resources.getString(R.string.salario_bruto_required));
 			return false;
 		}
-		if (!(numDependente.length() > 0)) {
-			editNumDependente.requestFocus();
-			editNumDependente.setError(resources.getString(R.string.numero_dependente_required));
-			return false;
-		}
 		return true;
 	}
 
-	private boolean isEmptyFields(String salarioBruto,String numDependente) {
+	private boolean isEmptyFields(String salarioBruto) {
 		if (TextUtils.isEmpty(salarioBruto)) {
 			editSalarioBruto.requestFocus(); // seta o foco para o campo user
 			editSalarioBruto.setError(resources.getString(R.string.salario_bruto_required));
-			return true;
-		}
-		
-		if (TextUtils.isEmpty(numDependente)) {
-			editNumDependente.requestFocus(); // seta o foco para o campo user
-			editNumDependente.setError(resources.getString(R.string.numero_dependente_required));
 			return true;
 		}
 		return false;

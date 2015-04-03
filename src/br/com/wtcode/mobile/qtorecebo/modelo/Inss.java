@@ -16,7 +16,8 @@ public class Inss extends Desconto implements Serializable{
 
 	@Override
 	public BigDecimal calculaPorcentagem() {
-		if (salario.getBruto().compareTo((new BigDecimal("1317.07"))) <= 0) {
+		if ((salario.getBruto().compareTo((new BigDecimal("0.0"))) > 0)  
+			&& (salario.getBruto().compareTo((new BigDecimal("1317.07"))) <= 0)) {
 			return manipulaProperties.buscaAliquota("inss.porcentagem.minimo");
 		} else if (salario.getBruto().compareTo((new BigDecimal("1317.08"))) >= 0
 				&& salario.getBruto().compareTo((new BigDecimal("2195.12"))) <= 0) {
@@ -24,8 +25,10 @@ public class Inss extends Desconto implements Serializable{
 		} else if (salario.getBruto().compareTo((new BigDecimal("2195.13"))) >= 0
 				&& salario.getBruto().compareTo((new BigDecimal("4390.24"))) <= 0) {
 			return manipulaProperties.buscaAliquota("inss.porcentagem.maximo");
-		} else {
+		} else if (salario.getBruto().compareTo(new BigDecimal("4390.24")) > 0){
 			return manipulaProperties.buscaAliquota("inss.desconto.maximo");
+		}else{
+			return new  BigDecimal("0.0");
 		}
 	}
 
